@@ -1,10 +1,13 @@
 {
   "name": "combocheck",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Combo url check utility",
   "main": "combocheck.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+      "line-reader": "*"
   },
   "repository": {
     "type": "git",
