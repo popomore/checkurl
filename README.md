@@ -28,4 +28,4 @@ combo 文件 404。
 
 执行结果一目了然，这样很利于快速定位问题。
 
-![](https://raw.alipay.net/blob/master/assets/example.png)
+![](https://raw.github.com/shaoshuai0102/combocheck/master/assets/example.png)
