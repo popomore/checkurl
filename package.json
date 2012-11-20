@@ -1,0 +1,19 @@
+{
+  "name": "combocheck",
+  "version": "0.0.1",
+  "description": "Combo url check utility",
+  "main": "combocheck.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shaoshuai0102/combocheck.git"
+  },
+  "bin": {
+      "combocheck": "combocheck.js"
+  },
+  "author": "Shawn <shaoshuai0102@gmail.com>",
+  "license": "BSD",
+  "readmeFilename": "README.md"
+}
