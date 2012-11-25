@@ -39,6 +39,26 @@ GET http://static.alipayobjects.com/static/ar/alipay.light.base-1.4.js -> 200
 GET http://static.alipayobjects.com/static/ar/alipay.security.riskMobileAccount-1.0.js -> 404
 ```
 
+### Require module
+
+You can require `checkurl`
+
+```
+var checkurl = require('checkurl');
+checkurl('url', function(err, data) {
+  // use data
+});
+```
+
+Data structure
+
+```
+[
+  ['url', 200],
+  ['url', 404]
+]
+```
+
 ## Install
 
 ```
