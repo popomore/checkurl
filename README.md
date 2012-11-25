@@ -1,9 +1,15 @@
-combocheck
-==========
+# checkurl
 
-Combo url check utility
+A tiny url status check tool
 
-## 使用场景
+---
+
+
+## 使用说明
+
+```
+checkurl 
+```
 
 combo 文件 404。
 
@@ -11,16 +17,14 @@ combo 文件 404。
 
 这个 url 可能很长，若其中一个文件没有发布都会 404。
 
-## 手动排查方法
-
-一点一点删除，直到发现到底是哪个文件不存在。
 
 ## 自动化工具
 
-## 安装
+## Install
 
-1.  需要安装 nodejs & npm 环境
-2.  npm install combocheck -g
+```
+npm install checkurl -g
+```
 
 ## 使用
 

@@ -38,7 +38,7 @@ function exit() {
 
 function print(err, data) {
   if (err) {
-    exit();
+    throw err;
   }
   data.forEach(function(o, i) {
     var status = (o[1] == 200 ? color.C_GREEN : color.C_RED) + o[1] + color.C_RESET;
