@@ -17,7 +17,7 @@ var inputstr = process.argv[2];
 if (!inputstr) exit();
 
 if (fs.existsSync(inputstr)) {
-  checkFile(file, print);
+  checkFile(inputstr, print);
 } else {
   checkUrl(inputstr, print);
 }
