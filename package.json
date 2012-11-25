@@ -1,22 +1,19 @@
 {
-  "name": "combocheck",
-  "version": "0.0.2",
-  "description": "Combo url check utility",
-  "main": "combocheck.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "name": "checkurl",
+  "version": "0.0.1",
+  "description": "A tiny url status check tool",
+  "main": "checkurl.js",
   "dependencies": {
       "line-reader": "*"
+      "async": "*"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/shaoshuai0102/combocheck.git"
+    "url": "git://github.com/popomore/checkurl.git"
   },
   "bin": {
-      "combocheck": "combocheck.js"
+      "checkurl": "checkurl.js"
   },
-  "author": "Shawn <shaoshuai0102@gmail.com>",
-  "license": "BSD",
-  "readmeFilename": "README.md"
+  "author": "popomore <sakura9515@gmail.com>",
+  "license": "BSD"
 }
