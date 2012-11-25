@@ -47,6 +47,10 @@ GET http://static.alipayobjects.com/static/ar/alipay.security.riskMobileAccount-
 npm install checkurl -g
 ```
 
-## Thanks
+## License
+
+BSD
+
+### Thanks
 
 https://github.com/shaoshuai0102/combocheck
