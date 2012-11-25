@@ -1,70 +1,88 @@
-#!env node
-var URL = require('url'),
-    fs = require('fs'),
-    path = require('path'),
-    http = require('http'),
-    https = require('https'),
-    lineReader = require('line-reader');
+var url = require('url');
+var fs = require('fs');
+var async = require('async');
+var path = require('path');
+var lineReader = require('line-reader');
+var protocol = {
+  http: require('http'),
+  https: require('https')
+};
 
-var C_RED   = '\033[31m',
-    C_BLUE  = '\033[34m',
-    C_GREEN = '\033[32m',
-    C_RESET = '\033[0m';
+var color = {
+  C_RED: '\033[31m',
+  C_BLUE: '\033[34m',
+  C_GREEN: '\033[32m',
+  C_RESET: '\033[0m'
+};
+
+module.exports = checkUrl;
 
 var inputstr = process.argv[2];
 
 if (!inputstr) exit();
 
 if (fs.existsSync(inputstr)) {
-    checkFile();
-} else if (/^http/.test(inputstr)) {
-    if (inputstr.indexOf('??') > -1) {
-        checkCombo();
-    } else {
-        ckeckUrl(inputstr);
-    }
+  checkFile(file, print);
 } else {
-    exit();
+  checkUrl(inputstr, print);
 }
 
-// 检测文件
-// example: ./combocheck.js file.txt
-function checkFile() {
-    lineReader.eachLine(inputstr, function(url, last) {
-        ckeckUrl(url);
-    });
+function checkFile(file, callback) {
+  lineReader.eachLine(file, function(url, last) {
+    checkUrl(url, callback);
+  });
 }
 
-// 检测 combo
-// example: ./combocheck.js http://assets.p46.alipay.net/\?\?gallery/moment/1.6.2/moment.js,arale/calendar/0.8.1/calendar.js,arale/overlay/0.9.12/overlay.js,arale/overlay/0.9.12/mask.js,arale/validator/0.8.9/validator.js,arale/validator/0.8.9/core.js,arale/select/0.9.0/select.js,arale/iframeshim/1.0.0/iframe-shim.js,consumeprod/record/1.0.0/i18n/zh-cn/lang.js,alipay/xbox/0.9.8/xbox.js,alipay/poptip/1.1.1/poptip.js
-function checkCombo() {
-    var obj = URL.parse(inputstr);
-    var protocol = obj.protocol ? obj.protocol.replace(/\:*$/, '') : 'http';
+function checkUrl(u, callback) {
+  var urlObj = url.parse(u);
 
-    var host = obj.host;
+  // should start with http/https
+  if (!urlObj.protocol) {
+    var err = new Error(u + ' should start with http/https');
+    callback(err);
+    return;
+  }
 
-    var liststr = obj.query ? obj.query.replace(/^\?*/, '') : '';
-
-    var files = liststr.split(',');
-    files.forEach(function(filename, i) {
-        var fullpath = protocol + '://' + (host || '') + path.normalize(obj.pathname + '/' + filename);
-        ckeckUrl(fullpath);
+  // combo url
+  if (/^\?\?/.test(urlObj.search)) {
+    var prefix = u.split('??')[0];
+    var arr = urlObj.search.replace(/^\?\?/, '').split(',');
+    async.reduce(arr, [], function(memo, item, callback) {
+      checkUrl(prefix + item, function(err, data) {
+        if (err) {
+          callback(err);
+        }
+        memo.push(data);
+        callback(null, memo);
+      });
+    }, function(err, result) {
+      callback(null, result);
     });
-
-}
-
-function ckeckUrl(url) {
-    var req = http.get(url, function(res) {
-        console.log(' GET ' + url + ' -> ' + (res.statusCode == 200 ? C_GREEN : C_RED) + res.statusCode + C_RESET);
-    }).on('error', function(e) {
-        console.log(' GET ' + url + ' -> ' + C_RED + 'Error' + C_RESET);
-    });
+  } else {
+    protocol[urlObj.protocol.replace(':', '')]
+      .get(u, function(res) {
+        callback(null, [u, res.statusCode]);
+      })
+      .on('error', function(e) {
+        callback(e);
+      });
+  }
 }
 
 function exit() {
-    console.error('Please input combo url or file');
+    console.error('Please input url or file');
     console.error('Example:');
     console.error('    /path/to/combocheck.js http://assets.test.alipay.net/ar/??arale.core.js,aralex.confirmbox-2.1.js');
     console.error('    /path/to/combocheck.js file.txt');
     process.exit(1);
+}
+
+function print(err, data) {
+  if (err) {
+    exit();
+  }
+  data.forEach(function(o, i) {
+    var status = (o[1] == 200 ? color.C_GREEN : color.C_RED) + o[1] + color.C_RESET;
+    console.log('GET ' + o[0] + ' -> ' + status);
+  });
 }
