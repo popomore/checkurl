@@ -2,9 +2,9 @@
   "name": "checkurl",
   "version": "0.0.1",
   "description": "A tiny url status check tool",
-  "main": "checkurl.js",
+  "main": "./lib/checkurl.js",
   "dependencies": {
-      "line-reader": "*"
+      "line-reader": "*",
       "async": "*"
   },
   "repository": {
@@ -12,7 +12,7 @@
     "url": "git://github.com/popomore/checkurl.git"
   },
   "bin": {
-      "checkurl": "checkurl.js"
+      "checkurl": "./bin/checkurl.js"
   },
   "author": "popomore <sakura9515@gmail.com>",
   "license": "BSD"
