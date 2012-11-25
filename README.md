@@ -7,8 +7,6 @@ A tiny url status check tool
 
 ## Usage
 
-**Don't support https**
-
 ### Check url
 
 ```
