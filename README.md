@@ -22,6 +22,14 @@ GET http://static.alipayobjects.com/static/ar/alipay.light.base-1.4.js -> 200
 GET http://static.alipayobjects.com/static/ar/alipay.security.riskMobileAccount-1.0.js -> 404
 ```
 
+### Check image combo
+
+```
+$ checkurl 'https://i.alipayobjects.com/combo.jpg?d=apps/24&t=10015,10016'
+GET https://i.alipayobjects.com/common/combo/apps/24/10015.png -> 200
+GET https://i.alipayobjects.com/common/combo/apps/24/10016.png -> 200
+```
+
 ### Check file
 
 urls.txt
