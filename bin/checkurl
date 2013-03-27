@@ -2,7 +2,6 @@
 
 var fs = require('fs');
 var path = require('path');
-var lineReader = require('line-reader');
 var checkUrl = require('../lib/checkurl');
 
 var color = {
@@ -16,17 +15,18 @@ var inputstr = process.argv[2];
 
 if (!inputstr) exit();
 
+// read file
 if (fs.existsSync(inputstr)) {
-  checkFile(inputstr, print);
-} else {
-  checkUrl(inputstr, print);
+  var data = fs.readFileSync(inputstr);
+  var inputstr = data.toString().split(/\r\n|\r|\n/);
 }
 
-function checkFile(file, callback) {
-  lineReader.eachLine(file, function(url, last) {
-    checkUrl(url, callback);
-  });
-}
+checkUrl(inputstr, function() {
+  console.log('complete');
+}).on('checked', print);
+
+// Helper
+// ------
 
 function exit() {
     console.error('Please input url or file');
@@ -36,13 +36,8 @@ function exit() {
     process.exit(1);
 }
 
-function print(err, data) {
-  if (err) {
-    throw err;
-  }
-  data.forEach(function(o, i) {
-    var status = (o[1] == 200 ? color.C_GREEN : color.C_RED) + o[1] + color.C_RESET;
-    console.log('GET ' + o[0] + ' -> ' + status);
-  });
+function print(data) {
+  var status = (data[1] === 200 ? color.C_GREEN : color.C_RED) + data[1] + color.C_RESET;
+  console.log('GET ' + data[0] + ' -> ' + status);
 }
 
