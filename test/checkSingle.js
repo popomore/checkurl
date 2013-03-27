@@ -1,7 +1,7 @@
 var expect = require('expect.js');
 var checkurl = require('../lib/checkurl');
 
-describe('Check single url', function() {
+describe('checkSingle', function() {
   it('should check https', function(done) {
     var url = 'https://a.alipayobjects.com/seajs/1.2.1/sea.js';
     checkurl(url, function(err, result) {

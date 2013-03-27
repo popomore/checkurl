@@ -7,6 +7,10 @@
       "line-reader": "*",
       "async": "*"
   },
+  "devDependencies": {
+    "mocha": "*",
+    "expect.js": "*"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/popomore/checkurl.git"
@@ -15,5 +19,8 @@
       "checkurl": "./bin/checkurl"
   },
   "author": "popomore <sakura9515@gmail.com>",
-  "license": "BSD"
+  "license": "BSD",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  }
 }
