@@ -21,13 +21,13 @@ if (fs.existsSync(inputstr)) {
   var inputstr = data.toString().split(/\r\n|\r|\n/);
 }
 
-checkUrl(inputstr, function(err) {
-  if (err) {
-    console.log('HEAD ' + err.url + ' ' + color.C_RED + err + color.C_RESET);
-    return;
-  }
+checkUrl(inputstr, function(result) {
   console.log('complete');
-}).on('checked', print);
+})
+.on('checked', print)
+.on('error', function(err) {
+  console.log('HEAD ' + color.C_RED + err + color.C_RESET);
+});
 
 // Helper
 // ------
