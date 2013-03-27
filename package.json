@@ -4,7 +4,6 @@
   "description": "A tiny url status check tool",
   "main": "./lib/checkurl.js",
   "dependencies": {
-      "line-reader": "*",
       "async": "*"
   },
   "devDependencies": {
