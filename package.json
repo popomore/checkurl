@@ -12,7 +12,7 @@
     "url": "git://github.com/popomore/checkurl.git"
   },
   "bin": {
-      "checkurl": "./bin/cli.js"
+      "checkurl": "./bin/checkurl"
   },
   "author": "popomore <sakura9515@gmail.com>",
   "license": "BSD"
