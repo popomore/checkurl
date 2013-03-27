@@ -21,7 +21,11 @@ if (fs.existsSync(inputstr)) {
   var inputstr = data.toString().split(/\r\n|\r|\n/);
 }
 
-checkUrl(inputstr, function() {
+checkUrl(inputstr, function(err) {
+  if (err) {
+    console.log(color.C_RED + e);
+    return;
+  }
   console.log('complete');
 }).on('checked', print);
 
