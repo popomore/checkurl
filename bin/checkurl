@@ -23,7 +23,7 @@ if (fs.existsSync(inputstr)) {
 
 checkUrl(inputstr, function(err) {
   if (err) {
-    console.log(color.C_RED + e);
+    console.log('HEAD ' + color.C_RED + err.url + ' ' + err + color.C_RESET);
     return;
   }
   console.log('complete');
@@ -42,6 +42,6 @@ function exit() {
 
 function print(data) {
   var status = (data[1] === 200 ? color.C_GREEN : color.C_RED) + data[1] + color.C_RESET;
-  console.log('GET ' + data[0] + ' -> ' + status);
+  console.log('HEAD ' + data[0] + ' -> ' + status);
 }
 
