@@ -23,7 +23,7 @@ if (fs.existsSync(inputstr)) {
 
 checkUrl(inputstr, function(err) {
   if (err) {
-    console.log('HEAD ' + color.C_RED + err.url + ' ' + err + color.C_RESET);
+    console.log('HEAD ' + err.url + ' ' + color.C_RED + err + color.C_RESET);
     return;
   }
   console.log('complete');
