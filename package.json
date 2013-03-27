@@ -21,6 +21,6 @@
   "author": "popomore <sakura9515@gmail.com>",
   "license": "BSD",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec"
+    "test": "./node_modules/.bin/mocha --reporter spec -t 20000"
   }
 }
