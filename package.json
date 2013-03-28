@@ -4,7 +4,7 @@
   "description": "A tiny url status check tool",
   "main": "./lib/checkurl.js",
   "dependencies": {
-      "async": "*"
+      "async": "~0.2.5"
   },
   "devDependencies": {
     "mocha": "*",
@@ -20,6 +20,6 @@
   "author": "popomore <sakura9515@gmail.com>",
   "license": "BSD",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec -t 200000"
+    "test": "./node_modules/.bin/mocha -t 200000 --reporter spec"
   }
 }
