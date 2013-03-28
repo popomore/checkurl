@@ -24,7 +24,7 @@ if (fs.existsSync(inputstr)) {
 var beginTime = new Date().getTime();
 checkUrl(inputstr, function(result) {
   var endTime = new Date().getTime();
-  var diff = Math.round((endTime - beginTime) / 1000);
+  var diff = ((endTime - beginTime) / 1000).toFixed(3);
   console.log('complete in ' + diff + 's');
 })
 .on('checked', print)
