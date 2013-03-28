@@ -21,8 +21,11 @@ if (fs.existsSync(inputstr)) {
   var inputstr = data.toString().split(/\r\n|\r|\n/);
 }
 
+var beginTime = new Date().getTime();
 checkUrl(inputstr, function(result) {
-  console.log('complete');
+  var endTime = new Date().getTime();
+  var diff = Math.round((endTime - beginTime) / 1000);
+  console.log('complete in ' + diff + 's');
 })
 .on('checked', print)
 .on('error', function(err) {
