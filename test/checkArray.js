@@ -8,7 +8,7 @@ describe('checkArray', function() {
       'https://a.alipayobjects.com/seajs/1.3.1/combo.js',
       'https://a.alipayobjects.com/jquery/jquery/1.7.2/jquery.js'
     ];
-    checkurl(url, function(err, result) {
+    checkurl(url, function(result) {
       expect(result).to.eql([
         ['https://a.alipayobjects.com/seajs/1.3.1/sea.js', 200],
         ['https://a.alipayobjects.com/seajs/1.3.1/combo.js', 404],
