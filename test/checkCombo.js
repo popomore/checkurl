@@ -14,6 +14,18 @@ describe('checkCombo', function() {
     });
   });
 
+  it('should check assets combo 2', function(done) {
+    var url = 'https://a.alipayobjects.com/alice/??box/1.0.0/box.css,button/1.0.0/button.css,tab/1.0.0/tab.css';
+    checkurl(url, function(result) {
+      expect(result).to.eql([
+        ['https://a.alipayobjects.com/alice/box/1.0.0/box.css', 200],
+        ['https://a.alipayobjects.com/alice/button/1.0.0/button.css', 200],
+        ['https://a.alipayobjects.com/alice/tab/1.0.0/tab.css', 200]
+      ]);
+      done();
+    });
+  });
+
   it('should check image combo', function(done) {
     var url = 'https://i.alipayobjects.com/combo.png?d=cashier&t=CDCB,ICBC,IMCC';
     checkurl(url, function(result) {
