@@ -1,10 +1,10 @@
 {
   "name": "checkurl",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A tiny url status check tool",
   "main": "./lib/checkurl.js",
   "dependencies": {
-      "async": "~0.2.5"
+    "async": "~0.2.5"
   },
   "devDependencies": {
     "mocha": "*",
@@ -15,7 +15,7 @@
     "url": "git://github.com/popomore/checkurl.git"
   },
   "bin": {
-      "checkurl": "./bin/checkurl"
+    "checkurl": "./bin/checkurl"
   },
   "author": "popomore <sakura9515@gmail.com>",
   "license": "BSD",
