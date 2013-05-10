@@ -37,4 +37,13 @@ describe('checkCombo', function() {
       done();
     });
   });
+
+  it('should check image combo2', function(done) {
+    var url = 'https://i.alipayobjects.com/combo.png?d=cashier';
+    checkurl(url, function(result) {
+      expect(result).to.eql([]);
+      done();
+    });
+  });
+
 });
