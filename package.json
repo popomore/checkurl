@@ -2,13 +2,16 @@
   "name": "checkurl",
   "version": "0.2.1",
   "description": "A tiny url status check tool",
-  "main": "./lib/checkurl.js",
+  "main": "index",
   "dependencies": {
     "async": "~0.2.5"
   },
   "devDependencies": {
-    "mocha": "*",
-    "expect.js": "*"
+    "mocha-lcov-reporter": "~0.0.1",
+    "jscoverage": "~0.3.6",
+    "coveralls": "~2.0.7",
+    "mocha": "~1.8.1",
+    "expect.js": "~0.2.0"
   },
   "repository": {
     "type": "git",

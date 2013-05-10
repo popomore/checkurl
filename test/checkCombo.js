@@ -1,5 +1,5 @@
 var expect = require('expect.js');
-var checkurl = require('../lib/checkurl');
+var checkurl = require('..');
 
 describe('checkCombo', function() {
   it('should check assets combo', function(done) {

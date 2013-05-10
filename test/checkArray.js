@@ -1,5 +1,5 @@
 var expect = require('expect.js');
-var checkurl = require('../lib/checkurl');
+var checkurl = require('..');
 
 describe('checkArray', function() {
   it('should check array', function(done) {
