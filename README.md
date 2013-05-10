@@ -1,5 +1,7 @@
 # checkurl
 
+[![Build Status](https://travis-ci.org/popomore/checkurl.png?branch=master)](https://travis-ci.org/popomore/checkurl)
+
 A tiny url status check tool
 
 ---
