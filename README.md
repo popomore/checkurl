@@ -1,6 +1,6 @@
 # checkurl
 
-[![Build Status](https://travis-ci.org/popomore/checkurl.png?branch=master)](https://travis-ci.org/popomore/checkurl)
+[![Build Status](https://travis-ci.org/popomore/checkurl.png?branch=master)](https://travis-ci.org/popomore/checkurl) [![Coverage Status](https://coveralls.io/repos/popomore/checkurl/badge.png?branch=master)](https://coveralls.io/r/popomore/checkurl?branch=master)
 
 A tiny url status check tool
 
