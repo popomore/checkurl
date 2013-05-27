@@ -8,10 +8,10 @@
   },
   "devDependencies": {
     "mocha-lcov-reporter": "~0.0.1",
-    "jscoverage": "~0.3.6",
     "coveralls": "~2.0.7",
     "mocha": "~1.8.1",
-    "expect.js": "~0.2.0"
+    "expect.js": "~0.2.0",
+    "blanket": "~1.1.4"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,9 @@
   "author": "popomore <sakura9515@gmail.com>",
   "license": "BSD",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -t 200000 --reporter spec"
+    "test": "./node_modules/.bin/mocha -t 200000 --reporter spec",
+    "blanket": {
+      "pattern": "//^((?!(node_modules|test)).)*$/"
+    }
   }
 }
