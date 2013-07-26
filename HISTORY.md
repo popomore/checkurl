@@ -1,5 +1,9 @@
 # HISTORY
 
+## 0.2.2
+
+don't check ssl
+
 ## 0.2.1
 
 - [#1](https://github.com/popomore/checkurl/issues/1) 解决只识别根目录 combo 的问题
