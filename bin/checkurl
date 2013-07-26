@@ -13,7 +13,7 @@ var color = {
 
 var inputstr = process.argv[2];
 
-if (!inputstr) exit();
+if (!inputstr) helpInfo();
 
 // read file
 if (fs.existsSync(inputstr)) {
@@ -35,12 +35,15 @@ checkUrl(inputstr, function(result) {
 // Helper
 // ------
 
-function exit() {
-    console.error('Please input url or file');
-    console.error('Example:');
-    console.error('    /path/to/combocheck.js http://assets.test.alipay.net/ar/??arale.core.js,aralex.confirmbox-2.1.js');
-    console.error('    /path/to/combocheck.js file.txt');
-    process.exit(1);
+function helpInfo() {
+    console.info('');
+    console.info('  Usage: checkurl [url]');
+    console.info('');
+    console.info('  Example:');
+    console.info('');
+    console.info('    checkurl http://assets.test.alipay.net/ar/??arale.core.js,aralex.confirmbox-2.1.js');
+    console.info('    checkurl file.txt');
+    process.exit();
 }
 
 function print(data) {
