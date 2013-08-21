@@ -1,6 +1,6 @@
 {
   "name": "checkurl",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A tiny url status check tool",
   "main": "index",
   "dependencies": {
