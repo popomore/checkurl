@@ -41,7 +41,7 @@ function helpInfo() {
     console.info('');
     console.info('  Example:');
     console.info('');
-    console.info('    checkurl http://assets.test.alipay.net/ar/??arale.core.js,aralex.confirmbox-2.1.js');
+    console.info('    checkurl https://a.alipayobjects.com/ar/??arale.core.js');
     console.info('    checkurl file.txt');
     process.exit();
 }
